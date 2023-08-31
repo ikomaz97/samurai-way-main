@@ -1,0 +1,16 @@
+.nav {
+    grid-area: n;
+    background-color: darkcyan;
+}
+
+.item {
+    color: darkred;
+}
+
+.item.active {
+    color: gold;
+}
+/*let s ={*/
+/*'nav': 'Navbar_nav__LK3K4',*/
+/*'item': 'Navbar_item__4MjPa',*/
+/*}*/
