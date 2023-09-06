@@ -2,11 +2,18 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
-const DialogItem = () => {
+const DialogItem = (props: any) => {
+    let path = '/dialogs1/' + props.id
     return (
         <div className={s.dialog + ' ' + s.active}>
-            <NavLink to='/dialogs1'>Dimych</NavLink>
+            <NavLink to={path}>{props.name}</NavLink>
         </div>
+    )
+}
+
+const Messages = (props: any) => {
+    return (
+        <div className={s.dialog}>{props.message}</div>
     )
 }
 
@@ -15,27 +22,17 @@ const Dialogs = (props: any) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                <Dialogs/>
-                <div className={s.dialog}>
-                    <NavLink to='/dialogs2'>Andrey</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='/dialogs3'> Sveta</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='/dialogs4'> Sasha</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='/dialogs5'> Victor</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='/dialogs6'> Valera</NavLink>
-                </div>
+                <Dialogs name="Dimych" id='1'/>
+                <Dialogs name="Andrey" id='2'/>
+                <Dialogs name="Sveta" id='3'/>
+                <Dialogs name="Sasha" id='4'/>
+                <Dialogs name="Victor" id='5'/>
+                <Dialogs name="Valera" id='6'/>
             </div>
             <div className={s.message}>
-                <div className={s.dialog}>Hi</div>
-                <div className={s.dialog}>How is you IT - kamasutra?</div>
-                <div className={s.dialog}>Yo</div>
+                <Messages message = "Hi"/>
+                <Messages message = "How is you IT - kamasutra?"/>
+                <Messages message = "Yo"/>
             </div>
         </div>
     );
