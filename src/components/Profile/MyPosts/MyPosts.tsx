@@ -9,9 +9,9 @@ const MyPosts = (props:any) => {
         {id:2, message:'How is you IT - kamasutra?', likeCount: 11 },
     ]
 
-    let postElement = posts.map((p)=>{
+    let postElement = posts.map((p)=>
         <Post message = {p.message} likesCount = {p.likeCount} />
-    })
+    )
     return (
             <div className={s.postsBlock}>
                 <h3>My posts</h3>
