@@ -14,9 +14,9 @@
 
 .message{
     padding: 10px;
-
+color: white;
 }
 
 .message .message {
-
+    color: white;
 }
