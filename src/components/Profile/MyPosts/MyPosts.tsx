@@ -9,15 +9,24 @@ const MyPosts = (props:any) => {
     let postElement = props.posts.map((p:any )=>
         <Post message = {p.message} likesCount = {p.likeCount} />
     )
+    let neWPostsElement = React.createRef<HTMLTextAreaElement>
+    () as React.RefObject<HTMLTextAreaElement>;
+    let addPost = () => {
+        if (neWPostsElement.current !== null) {
+            let text = neWPostsElement.current.value as string;
+            alert('Hi');
+        }
+    };
+
     return (
             <div className={s.postsBlock}>
                 <h3>My posts</h3>
                 <div>
                     <div>
-                    <textarea></textarea>
+                    <textarea ref={neWPostsElement}></textarea>
                     </div>
                     <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                     </div>
                 </div>
                 <div className={s.posts}>
