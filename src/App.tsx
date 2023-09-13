@@ -8,8 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Post from "./components/Profile/MyPosts/Post/Post";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 
-function App(props:any) {
-
+function App(props: any) {
 
 
     return (
@@ -19,11 +18,10 @@ function App(props:any) {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    {/*<Route path='/message/'  component={Dialogs}/>*/}
-                    {/*<Route path='/profile/'  component={Profile}/>*/}
-
-                    <Route path='/message/'  render={()=><Dialogs/>}/>
-                    <Route path='/profile/'  render={()=><Profile posts ={props.posts}/>}/>
+                    <Route path='/message/'
+                           render={() => <Dialogs  state={props.state.dialogsPage}/>}/>
+                    <Route path='/profile/'
+                           render={() => <Profile state={props.state.profilePage}/>}/>
                 </div>
             </div>
         </BrowserRouter>
