@@ -81,7 +81,7 @@ export const updateNewPostText: (newText: string) => void = (newText) => {
     renderEntireTree(state);
 };
 
-export const subscriber: (observer: (state: Stat) => void) => void = (
+export const subscriber: (observer: (state: State) => void) => void = (
     observer
 ) => {
     renderEntireTree = observer;
