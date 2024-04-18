@@ -84,7 +84,7 @@ export const updateNewPostText: (newText: string) => void = (newText) => {
 export const subscriber: (observer: (state: State) => void) => void = (
     observer
 ) => {
-    renderEntireTree = observe;
+    renderEntireTree = observer;
 };
 
 export default state;
