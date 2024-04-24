@@ -6,17 +6,13 @@ import App from './App';
 import state, {updateNewPostText, addPost, subscriber,} from './redux/state';
 import {BrowserRouter} from 'react-router-dom';
 
-
-
 let renderEntireFree = (appState: typeof state) => {
     ReactDOM.render(
         <BrowserRouter>
-
                 <App state={appState}
                      updateNewPostText={updateNewPostText}
                      addpost={addPost}/>
-            </DevSupport>
-        </BrowserRouter>,
+                  </BrowserRouter>,
         document.getElementById('root')
     );
 };
