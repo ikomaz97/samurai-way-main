@@ -9,10 +9,10 @@ import {BrowserRouter} from 'react-router-dom';
 let renderEntireFree = (appState: typeof state) => {
     ReactDOM.render(
         <BrowserRouter>
-                <App state={appState}
-                     updateNewPostText={updateNewPostText}
-                     addpost={addPost}/>
-                  </BrowserRouter>,
+            <App state={appState}
+                 updateNewPostText={updateNewPostText}
+                 addpost={addPost}/>
+        </BrowserRouter>,
         document.getElementById('root')
     );
 };
