@@ -28,10 +28,12 @@ interface DialogsPage {
 interface State {
     profilePage: ProfilePage;
     dialogsPage: DialogsPage;
+    // Явно указываем тип для параметра observer
+    subscriber: (observer: () => void) => void;
 }
 
-let store = {
-    _state:  {
+export let store = {
+    _state: {
         profilePage: {
             posts: [
                 { id: 1, message: "Hi, how are you?", likeCount: 12 },
@@ -61,31 +63,31 @@ let store = {
             sidebar: {},
         },
     },
-    getState () {
+    getState() {
         return this._state;
     },
-    _callSubscriber ()   {
+    _callSubscriber() {
         console.log("State changed:");
     },
-    addPost ()  {
+    addPost() {
         let newPost: Post = {
-            id: state.profilePage.posts.length + 1,
+            id: this._state.profilePage.posts.length + 1,
             message: this._state.profilePage.newPostText,
             likeCount: 0,
         };
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText (newText)  {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    subscriber (observer)    {
-        this._callSubscriber = observer;
+        this._callSubscriber(); // Вызов без аргументов
     },
 
+    updateNewPostText(newText: string) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(); // Вызов без аргументов
+    },
+    // Используем явное указание типа для параметра observer
+    subscriber(observer: () => void) {
+        this._callSubscriber = observer;
+    },
 };
 
 export default store;
-window.store = store;

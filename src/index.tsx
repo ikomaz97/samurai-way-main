@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom';
 import store from './redux/state'
 import './index.css';
 import App from './App';
-//import state, {updateNewPostText, addPost, subscriber,} from './redux/state';
+import state from './redux/state';
 import {BrowserRouter} from 'react-router-dom';
 
 let renderEntireFree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={store.getState()}
+            <App state={store._state}
                  updateNewPostText={store.updateNewPostText.bind(store)}
                  addpost={store.addPost.bind(store)}/>
         </BrowserRouter>,
@@ -19,6 +19,6 @@ let renderEntireFree = () => {
 };
 
 
-renderEntireFree(store.getState());
+renderEntireFree();
 store.subscriber(renderEntireFree);
 
