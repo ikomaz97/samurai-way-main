@@ -5,10 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import Post from "./components/Profile/MyPosts/Post/Post";
-import MyPosts from "./components/Profile/MyPosts/MyPosts";
-import {updateNewPostText} from "./redux/state";
-
 function App(props: any) {
 
 
