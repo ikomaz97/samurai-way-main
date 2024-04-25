@@ -61,25 +61,28 @@ let store = {
             sidebar: {},
         },
     },
-    renderEntireTree ()   {
-        console.log("State changed:", state);
+    getState () {
+        return this._state;
+    },
+    _callSubscriber ()   {
+        console.log("State changed:");
     },
     addPost ()  {
         let newPost: Post = {
             id: state.profilePage.posts.length + 1,
-            message: state.profilePage.newPostText,
+            message: this._state.profilePage.newPostText,
             likeCount: 0,
         };
-        state.profilePage.posts.push(newPost);
-        state.profilePage.newPostText = "";
-        renderEntireTree(state);
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = "";
+        this._callSubscriber(this._state);
     },
     updateNewPostText (newText)  {
-        state.profilePage.newPostText = newText;
-        renderEntireTree(state);
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
     },
     subscriber (observer)    {
-        renderEntireTree = observer;
+        this._callSubscriber = observer;
     },
 
 };
