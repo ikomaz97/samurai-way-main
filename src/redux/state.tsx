@@ -64,7 +64,7 @@ export const store = {
         },
     },
     getState() {
-        return this._state;
+        return {...this._state};
     },
     _callSubscriber() {
         console.log("State changed:");
