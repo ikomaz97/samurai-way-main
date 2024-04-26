@@ -32,7 +32,7 @@ interface State {
     subscriber: (observer: () => void) => void;
 }
 
-export let store = {
+export const store = {
     _state: {
         profilePage: {
             posts: [
