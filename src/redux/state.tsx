@@ -69,8 +69,8 @@ export const store = {
     _callSubscriber() {
         console.log("State changed:");
     },
-    addPost() {
-        let newPost: Post = {
+    addPost(title:string) {
+        const newPost: Post = {
             id: this._state.profilePage.posts.length + 1,
             message: this._state.profilePage.newPostText,
             likeCount: 0,
