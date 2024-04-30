@@ -6,17 +6,17 @@ import Post from "./Post/Post";
 
 const MyPosts = (props: any) => {
 
-    let postElement = props.posts.map((p: any) =>
+    const postElement = props.posts.map((p: any) =>
         <Post message={p.message} likesCount={p.likeCount}/>
     )
-    let newPostsElement = React.createRef<HTMLTextAreaElement>
+    const newPostsElement = React.createRef<HTMLTextAreaElement>
     () as React.RefObject<HTMLTextAreaElement>;
-    let addPost = () => {
+    const addPost = () => {
         props.addPost();
 
     };
 
-    let onPostChange = () => {
+    const onPostChange = () => {
         if (newPostsElement.current !== null) {
             let text = newPostsElement.current.value as string;
             props.updateNewPostText(text);
