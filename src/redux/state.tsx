@@ -1,37 +1,36 @@
 
 
-interface Post {
+export interface Post {
     id: number;
     message: string;
     likeCount: number;
 }
 
-interface Dialog {
-    id: number;
-    name: string;
-}
-
-interface Message {
-    id: number;
-    message: string;
-}
-
-interface ProfilePage {
+export interface ProfilePage {
     posts: Post[];
     newPostText: string;
 }
 
-interface DialogsPage {
-    dialogs: Dialog[];
-    messages: Message[];
-    sidebar: {};
+export interface Dialog {
+    id: number;
+    name: string;
 }
 
-interface State {
+export interface Message {
+    id: number;
+    message: string;
+}
+
+export interface DialogsPage {
+    dialogs: Dialog[];
+    messages: Message[];
+    sidebar: Record<string, any>; // Пустой объект-плашка для sidebar
+}
+
+export interface State {
     profilePage: ProfilePage;
     dialogsPage: DialogsPage;
-    // Явно указываем тип для параметра observer
-    subscriber: (observer: () => void) => void;
+    subscriber: () => void;
 }
 
 const store = {
