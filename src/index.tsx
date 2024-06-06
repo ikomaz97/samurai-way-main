@@ -1,24 +1,18 @@
-import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/state'
-import './index.css';
 import App from './App';
-import state from './redux/state';
-import {BrowserRouter} from 'react-router-dom';
+import store from './redux/state';  // Убедитесь, что путь к вашему store правильный
 
-let renderEntireFree = () => {
+const renderEntireTree = () => {
     ReactDOM.render(
-        <BrowserRouter>
-            <App state={store._state}
-                 updateNewPostText={store.updateNewPostText.bind(store)}
-                 addpost={store.addPost.bind(store)}/>
-        </BrowserRouter>,
+        <App
+            state={store.getState()}
+            addPost={store.addPost.bind(store)}
+            updateNewPostText={store.updateNewPostText.bind(store)}
+        />,
         document.getElementById('root')
     );
 };
 
-
-renderEntireFree();
-store.subscriber(renderEntireFree);
-
+store.subscriber(renderEntireTree);
+renderEntireTree();
