@@ -1,22 +1,23 @@
 import React from 'react';
-import s from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts'
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import addPost from "../../redux/state";
+import MyPosts from './MyPosts/MyPosts';
 
+type ProfileProps = {
+    profilePage: any;
+    addPost: () => void;
+    updateNewPostText: (text: string) => void;
+};
 
-
-const Profile = (props:any) => {
-
+const Profile: React.FC<ProfileProps> = (props) => {
     return (
         <div>
-            <ProfileInfo/>
-            <MyPosts posts={props.profilePage.posts}
-                     newPostText={props.profilePage.newPostText}
-                     updateNewPostText={props.updateNewPostText}
-                     addpost = {addPost}/>
+            <MyPosts
+                posts={props.profilePage.posts}
+                newPostText={props.profilePage.newPostText}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+            />
         </div>
     );
-};
+}
 
 export default Profile;
