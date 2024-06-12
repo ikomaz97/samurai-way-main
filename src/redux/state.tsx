@@ -1,3 +1,4 @@
+import actions from "redux-form/lib/actions";
 
 
 export interface Post {
@@ -80,6 +81,18 @@ const store = {
     subscriber(observer: () => void) {
         this._callSubscriber = observer;
     },
+    dispatch (action) {
+        if (action.type === 'ADD-POST') {
+            const newPost: Post = {
+                id: this._state.profilePage.posts.length + 1,
+                message: this._state.profilePage.newPostText,
+                likeCount: 0,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber();
+        }
+    }
 };
 
 export default store;
