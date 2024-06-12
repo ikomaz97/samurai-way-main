@@ -75,10 +75,7 @@ const store = {
         this._state.profilePage.newPostText = "";
         this._callSubscriber();
     },
-    updateNewPostText(newText: string) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber();
-    },
+
     subscriber(observer: () => void) {
         this._callSubscriber = observer;
     },
