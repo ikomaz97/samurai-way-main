@@ -1,4 +1,5 @@
 import actions from "redux-form/lib/actions";
+import {type} from "os";
 
 
 export interface Post {
@@ -90,6 +91,10 @@ const store = {
             };
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = "";
+            this._callSubscriber();
+        }
+        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
             this._callSubscriber();
         }
     }
