@@ -23,11 +23,12 @@ const MyPosts: React.FC<MyPostsProps> = (props) => {
     const newPostElement = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
-        props.addPost();
+        props.dispatch({typr: 'ADD-POST'});
     };
 
     const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        props.updateNewPostText(event.target.value);
+        let action = {typr: 'UPDATE-NEW-POST-TEXT', newPostText: text};
+        props.dispatch(action);
     };
 
     return (
