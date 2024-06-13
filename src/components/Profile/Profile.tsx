@@ -1,10 +1,11 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 
-type ProfileProps = {
+export type ProfileProps = {
     profilePage: any;
     addPost: () => void;
     updateNewPostText: (text: string) => void;
+    dispatch: (action: any) => void;
 };
 
 const Profile: React.FC<ProfileProps> = (props) => {
