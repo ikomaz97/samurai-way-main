@@ -30,7 +30,7 @@ const MyPosts: React.FC<MyPostsProps> = (props) => {
     };
 
     const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        let action = (updateNewPostActionCreator(text);
+        let action = (updateNewPostActionCreator(text));
         props.dispatch(action);
     };
 
